@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>NEXIA | Tu asistente personal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>NEXIA</span></div>
+    <button class="new-chat" id="newChat">＋ Nueva conversación</button>
+    <p class="side-label">RECientes</p>
+    <div id="historyList" class="history-list"></div>
+    <div class="side-bottom">
+      <div class="local-pill"><span></span> Preparada para IA local</div>
+      <small>Versión inicial · 1.0</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+      <div class="top-title">NEXIA <span class="tiny-star">✦</span></div>
+      <button class="icon-btn" id="clearBtn" aria-label="Limpiar conversación" title="Nueva conversación">＋</button>
+    </header>
+
+    <section class="chat" id="chat" aria-live="polite">
+      <div class="welcome" id="welcome">
+        <div class="welcome-orb">✦</div>
+        <h1>¿En qué puedo ayudarte?</h1>
+        <p>Soy NEXIA, tu asistente personal.</p>
+        <div class="suggestions">
+          <button class="suggestion" data-prompt="Ayúdame a aprender algo nuevo.">✧ <span>Aprender algo nuevo</span></button>
+          <button class="suggestion" data-prompt="Ayúdame a escribir un texto.">✎ <span>Escribir o editar</span></button>
+          <button class="suggestion" data-prompt="Ayúdame a crear una aplicación.">⌘ <span>Crear una aplicación</span></button>
+          <button class="suggestion" data-prompt="Explícame un tema paso a paso.">◉ <span>Explicar un tema</span></button>
+        </div>
+      </div>
+      <div id="messages"></div>
+    </section>
+
+    <footer class="composer-wrap">
+      <div class="composer">
+        <textarea id="messageInput" rows="1" placeholder="Escribe un mensaje a NEXIA..." aria-label="Mensaje"></textarea>
+        <button id="sendBtn" class="send-btn" aria-label="Enviar mensaje">↑</button>
+      </div>
+      <p class="disclaimer" id="engineNotice">Interfaz de prueba: el motor de IA local todavía no está conectado.</p>
+    </footer>
+  </main>
+  <div class="scrim" id="scrim"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light;
+  --ink: #172033; --muted: #778196; --line: #e7ebf2;
+  --blue: #3979ef; --panel: #f6f8fc; --navy: #101827;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); }
+body { background: #fff; }
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+.sidebar {
+  position: fixed; inset: 0 auto 0 0; width: 270px; padding: 22px 16px;
+  background: var(--navy); color: #f7f9ff; display: flex; flex-direction: column; z-index: 5;
+}
+.brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:2px; font-size:20px; padding: 2px 8px 28px; }
+.brand-mark { color:#77a7ff; font-size:27px; }
+.new-chat { border:1px solid #344156; color:#fff; background:#1b2940; border-radius:12px; padding:13px; text-align:left; }
+.side-label { color:#8996aa; font-size:10px; letter-spacing:1.5px; margin:28px 8px 10px; }
+.history-list { overflow:auto; }
+.history-item { width:100%; text-align:left; color:#dce4f2; border:0; background:transparent; padding:10px 9px; border-radius:9px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.history-item:hover { background:#202e44; }
+.side-bottom { margin-top:auto; display:grid; gap:12px; color:#9aa7ba; font-size:12px; }
+.local-pill { display:flex; align-items:center; gap:8px; color:#c8d8f4; }
+.local-pill span { width:8px; height:8px; border-radius:50%; background:#48c78e; }
+.main { margin-left:270px; height:100%; display:flex; flex-direction:column; }
+.topbar { height:64px; flex:none; display:flex; align-items:center; justify-content:space-between; padding:0 22px; border-bottom:1px solid var(--line); }
+.top-title { font-weight:750; letter-spacing:1.5px; }
+.tiny-star { color:var(--blue); }
+.icon-btn { width:38px; height:38px; border:1px solid var(--line); background:#fff; border-radius:50%; color:var(--ink); font-size:20px; }
+.menu-btn { display:none; }
+.chat { flex:1; overflow-y:auto; padding:28px 22px 150px; }
+.welcome { max-width:650px; margin:7vh auto 0; text-align:center; }
+.welcome-orb { width:66px; height:66px; margin:0 auto 22px; border-radius:22px; display:grid; place-items:center; color:white; font-size:34px; background:linear-gradient(145deg,#69a2ff,#315fe2); box-shadow:0 12px 35px #3979ef35; }
+.welcome h1 { font-size:clamp(25px,4vw,34px); margin:0 0 9px; letter-spacing:-.8px; }
+.welcome p { color:var(--muted); margin:0 0 28px; }
+.suggestions { display:grid; grid-template-columns:1fr 1fr; gap:10px; text-align:left; }
+.suggestion { border:1px solid var(--line); background:white; color:#4777c9; border-radius:13px; padding:14px; display:flex; gap:10px; align-items:center; }
+.suggestion span { color:#344057; font-size:14px; }
+#messages { max-width:760px; margin:0 auto; }
+.message { display:flex; margin:18px 0; }
+.message.user { justify-content:flex-end; }
+.bubble { max-width:min(82%,680px); padding:13px 16px; border-radius:18px; line-height:1.55; white-space:pre-wrap; overflow-wrap:anywhere; }
+.user .bubble { background:#edf2fb; border-bottom-right-radius:5px; }
+.assistant .bubble { background:#f7f8fb; border:1px solid #edf0f5; border-bottom-left-radius:5px; }
+.composer-wrap { position:fixed; bottom:0; left:270px; right:0; padding:14px 22px 12px; background:linear-gradient(transparent,#fff 22%); }
+.composer { max-width:760px; margin:auto; display:flex; align-items:flex-end; gap:9px; padding:9px 10px 9px 17px; border:1px solid #dfe5ef; border-radius:19px; background:#fff; box-shadow:0 7px 28px #1720330c; }
+.composer textarea { resize:none; border:0; outline:0; flex:1; max-height:130px; min-height:34px; padding:7px 0; color:var(--ink); background:transparent; }
+.send-btn { width:38px; height:38px; flex:none; border:0; border-radius:13px; color:#fff; background:var(--blue); font-size:23px; }
+.send-btn:disabled { opacity:.4; cursor:not-allowed; }
+.disclaimer { text-align:center; color:#929bad; font-size:11px; margin:9px 0 0; }
+.scrim { display:none; }
+@media (max-width:700px) {
+  .sidebar { transform:translateX(-100%); transition:transform .2s ease; }
+  body.menu-open .sidebar { transform:translateX(0); }
+  .main { margin-left:0; }
+  .menu-btn { display:block; }
+  .topbar { padding:0 14px; }
+  .chat { padding:20px 14px 145px; }
+  .welcome { margin-top:8vh; }
+  .suggestions { grid-template-columns:1fr; }
+  .composer-wrap { left:0; padding:10px 12px 9px; }
+  body.menu-open .scrim { display:block; position:fixed; inset:0; background:#0006; z-index:4; }
+}
